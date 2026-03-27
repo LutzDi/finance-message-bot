@@ -44,10 +44,11 @@ jobs:
       - name: Send notification to Discord
         env:
           CONTENT: ${{ env.CONTENT }}
+          SEC_TOKEN: ${{ secrets.SEC_TOKEN }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           curl -X POST -H "Content-Type: application/json" \
-          -d "{\"content\": \"${CONTENT}\"}" \
+          -d "{\"content\": \"${CONTENT}\", \"sec_token\": \"${SEC_TOKEN}\"}" \
           $DISCORD_WEBHOOK_URL
       
       - name: Push changes
