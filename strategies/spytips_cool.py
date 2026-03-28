@@ -102,7 +102,7 @@ def spy_tips_cool():
         last_entry = file_c[-1].split(",")
         if last_entry[0] == str(spy.index[-1]):
             print("Already checked today")
-            return None, None, None
+            return "Information", "No new data for today.", "Script will run tomorrow again."
         # get index of last entry in spy data
         last_date = pd.to_datetime(last_entry[0])
         last_index = spy.index.get_loc(last_date)
